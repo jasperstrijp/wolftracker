@@ -1,0 +1,23 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.jasperstrijp.wolftracker.api.Wolf" table="wolfs">
+
+        <id name="id" type="long">
+            <generator class="native"/>
+        </id>
+
+        <property name="firstName" type="string" not-null="true" />
+        <property name="middleName" type="string" />
+        <property name="lastName" type="string" not-null="true" />
+        <property name="birthdate" type="date" not-null="true" />
+        <property name="gender" not-null="true">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.jasperstrijp.wolftracker.api.enums.Gender</param>
+            </type>
+        </property>
+    </class>
+</hibernate-mapping>

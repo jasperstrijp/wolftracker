@@ -13,6 +13,17 @@ public class Wolf {
     private Date birthdate;
     private String location;
 
+    public Wolf() {
+    }
+
+    public Wolf(String firstName, String middleName, String lastName, Gender gender, Date birthdate) {
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.birthdate = birthdate;
+    }
+
     public long getId() {
         return id;
     }

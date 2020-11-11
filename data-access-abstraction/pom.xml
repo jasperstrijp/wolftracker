@@ -10,6 +10,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>data-access-abstraction</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.jasperstrijp.wolftracker.api</groupId>
+            <artifactId>models</artifactId>
+            <version>0.1.0</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
 
 </project>

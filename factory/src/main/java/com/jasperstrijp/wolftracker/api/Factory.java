@@ -1,13 +1,16 @@
 package com.jasperstrijp.wolftracker.api;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 public class Factory {
-    private final ApplicationContext applicationContext;
 
+    public WolfLogic getWolfLogic() {
+        return new DefaultWolfLogic(getWolfRepository());
+    }
 
-    public Factory() {
-        this.applicationContext = new ClassPathXmlApplicationContext("mapping.xml");
+    public WolfRepository getWolfRepository() {
+        return new DefaultWolfRepository(getWolfContext());
+    }
+
+    public WolfContext getWolfContext() {
+        return new MySqlWolfContext();
     }
 }

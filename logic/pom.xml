@@ -10,6 +10,20 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>logic</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.jasperstrijp.wolftracker.api</groupId>
+            <artifactId>logic-abstraction</artifactId>
+            <version>0.1.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.jasperstrijp.wolftracker.api</groupId>
+            <artifactId>repository-abstraction</artifactId>
+            <version>0.1.0</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
 
 </project>

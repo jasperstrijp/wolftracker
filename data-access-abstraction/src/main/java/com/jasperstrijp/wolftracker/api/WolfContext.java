@@ -3,6 +3,7 @@ package com.jasperstrijp.wolftracker.api;
 import java.util.List;
 
 public interface WolfContext {
+
     /**
      * Save a new wolf.
      * @param wolf The object to be saved.
@@ -17,11 +18,32 @@ public interface WolfContext {
      */
     Wolf getWolf(long wolfId);
 
-//    List<Wolf> getAllWolfs();
-//
-//    boolean removeWolf(long wolfId);
-//
-//    boolean updateWolf(long wolfId, Wolf wolf);
-//
-//    boolean updateWolfLocation(long wolfId, String location);
+    /**
+     * Get all wolfs including data
+     * @return A list of wolfs
+     */
+    List<Wolf> getAllWolfs();
+
+    /**
+     * Remove a wolf from the database
+     * @param wolfId The id of the wolf to be removed
+     * @return A boolean value indicating if the operation was successful
+     */
+    boolean removeWolf(long wolfId);
+
+    /**
+     * Update a wolf in the database
+     * @param wolfId the Id of the wolf to update
+     * @param updatedWolf A wolf object containing the new data, the id field is ignored
+     * @return A boolean value indicating if the operation was successful
+     */
+    boolean updateWolf(long wolfId, Wolf updatedWolf);
+
+    /**
+     * Update the location of a wolf in the database
+     * @param wolfId the id of the wolf to update
+     * @param location the new location of the wolf
+     * @return A boolean value indicating if the operation was successful
+     */
+    boolean updateWolfLocation(long wolfId, String location);
 }

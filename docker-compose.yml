@@ -3,13 +3,17 @@ version: '3.3'
 services:
   db:
     image: mysql:5.7
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
     volumes:
       - db_data:/var/lib/mysql
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: wolftrakcer
+      MYSQL_DATABASE: wolftracker
       MYSQL_USER: wolftracker
       MYSQL_PASSWORD: wolftracker
 volumes:
-  db_data: {}
+  db_data:

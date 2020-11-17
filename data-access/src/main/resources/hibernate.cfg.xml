@@ -1,0 +1,40 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+
+        <property name="hibernate.dialect">
+            org.hibernate.dialect.MySQL55Dialect
+        </property>
+
+        <property name="hibernate.connection.url">
+            jdbc:mysql://localhost:3306/wolftracker?useSSL=false
+        </property>
+
+
+        <property name="hibernate.connection.username">
+            root
+        </property>
+
+        <property name="hibernate.connection.password">
+            rootpassword
+        </property>
+
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <property name="hibernate.c3p0.min_size">1</property>
+        <property name="hibernate.c3p0.max_size">1</property>
+        <property name="hibernate.c3p0.timeout">300</property>
+        <property name="hibernate.c3p0.max_statements">50</property>
+        <property name="hibernate.c3p0.idle_test_period">3000</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+
+
+        <!-- List of XML mapping files -->
+        <mapping resource="Wolf.hbm.xml"/>
+<!--        <mapping resource="Pack.hbm.xml"/>-->
+
+    </session-factory>
+
+</hibernate-configuration>

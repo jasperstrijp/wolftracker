@@ -13,4 +13,16 @@ public class Factory {
     public WolfContext getWolfContext() {
         return new MySqlWolfContext();
     }
+
+    public PackLogic getPackLogic() {
+        return new DefaultPackLogic(getPackRepository(), getWolfRepository());
+    }
+
+    public PackRepository getPackRepository() {
+        return new DefaultPackRepository(getPackContext());
+    }
+
+    public PackContext getPackContext() {
+        return new MySqlPackContext();
+    }
 }

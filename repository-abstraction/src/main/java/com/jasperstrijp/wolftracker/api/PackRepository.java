@@ -2,7 +2,7 @@ package com.jasperstrijp.wolftracker.api;
 
 import java.util.List;
 
-public interface PackContext {
+public interface PackRepository {
     long savePack(Pack pack);
 
     boolean removeWolfFromPack(long packId, long wolfId);

@@ -10,15 +10,15 @@
             <generator class="native"/>
         </id>
 
-        <property access="field" name="firstName" type="java.lang.String" not-null="true" />
-        <property access="field" name="middleName" type="java.lang.String" />
-        <property access="field" name="lastName" type="java.lang.String" />
-        <property access="field" name="birthdate" type="java.util.Date" not-null="true" />
-        <property access="field" name="gender" not-null="true">
+        <property name="firstName" type="java.lang.String" not-null="true" />
+        <property name="middleName" type="java.lang.String" />
+        <property name="lastName" type="java.lang.String" />
+        <property name="birthdate" type="java.util.Date" not-null="true" />
+        <property name="gender" not-null="true">
             <type name="org.hibernate.type.EnumType">
                 <param name="enumClass">com.jasperstrijp.wolftracker.api.enums.Gender</param>
             </type>
         </property>
-        <property access="field" name="location" type="java.lang.String" not-null="false" />
+        <property name="location" type="java.lang.String" not-null="false" />
     </class>
 </hibernate-mapping>

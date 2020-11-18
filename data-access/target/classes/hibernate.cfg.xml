@@ -33,7 +33,7 @@
 
         <!-- List of XML mapping files -->
         <mapping resource="Wolf.hbm.xml"/>
-<!--        <mapping resource="Pack.hbm.xml"/>-->
+        <mapping resource="Pack.hbm.xml"/>
 
     </session-factory>
 

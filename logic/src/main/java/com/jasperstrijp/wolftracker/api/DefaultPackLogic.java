@@ -3,7 +3,9 @@ package com.jasperstrijp.wolftracker.api;
 import com.jasperstrijp.wolftracker.api.exceptions.*;
 
 import java.security.InvalidParameterException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class DefaultPackLogic implements PackLogic {
 
@@ -78,7 +80,16 @@ public class DefaultPackLogic implements PackLogic {
             throw new PackDoesNotExistException(PACK_DOES_NOT_EXIST_ERROR);
         }
 
-        return packRepository.getPackById(packId);
+        Pack pack = packRepository.getPackById(packId);
+        pack.setMembers(removeNullMembers(pack.getMembers()));
+
+        return pack;
+    }
+
+    private List<Wolf> removeNullMembers(List<Wolf> original){
+        List<Wolf> wolves = new ArrayList<>(original);
+        wolves.removeIf(Objects::isNull);
+        return wolves;
     }
 
     private boolean isWolfInPack(long packId, long wolfId) throws PackDoesNotExistException, WolfDoesNotExistException {
@@ -93,6 +104,10 @@ public class DefaultPackLogic implements PackLogic {
         Pack pack = getPackById(packId);
 
         for (Wolf wolf: pack.getMembers()) {
+            if (wolf == null){
+                continue;
+            }
+
             return wolf.id == wolfId;
         }
 

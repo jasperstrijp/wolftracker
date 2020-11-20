@@ -11,7 +11,7 @@
 
         <property name="name" />
 
-        <list name="members" table="wolfs" cascade="all">
+        <list name="members" table="wolfs" cascade="all" lazy="false">
             <key>
                 <column name="pack" />
             </key>

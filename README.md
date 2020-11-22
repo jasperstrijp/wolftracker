@@ -4,7 +4,13 @@ This project has been created for an assignment from Wolfpack IT. It is a public
 # Run
 This API requires a MySql database to be running, it needs CREATE access to be able to create new tables and should have full control overt those tables. The database should be manually created, see the file `data-access/src/main/resources/hibernate.cfg.xml` for the connection settings (they can also be changed in the file).
 
-The project comes with a `docker-compose` file to start a MySql container with the correct configuration to be used by the api. Just run `docker-compose up -d` in the root directory and start the application.
+The project comes with a `docker-compose` file to start a MySql container with the correct configuration to be used by the api. Just run `docker-compose up -d` in the root directory and start the application. Once the application is running you can navigate to [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html) to see the endpoints and test the API.
+
+# Libraries
+This project uses the following open-source libraries:
+- Hibernate
+- Spring boot
+- Swagger-UI
 
 # Asignment
 Welcome to the Backend Wolfpack assessment!

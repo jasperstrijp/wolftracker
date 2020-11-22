@@ -16,11 +16,6 @@ public class DefaultPackRepository implements PackRepository {
     }
 
     @Override
-    public boolean removeWolfFromPack(long packId, long wolfId) {
-        return packContext.removeWolfFromPack(packId, wolfId);
-    }
-
-    @Override
     public boolean addWolfToPack(long packId, long wolfId) {
         return packContext.addWolfToPack(packId, wolfId);
     }

@@ -9,10 +9,9 @@ import java.util.Objects;
 
 public class DefaultPackLogic implements PackLogic {
 
-    private PackRepository packRepository;
-    private WolfRepository wolfRepository;
+    private final PackRepository packRepository;
+    private final WolfRepository wolfRepository;
 
-    private static final String PACK_ID_PARAMETER_LESS_THEN_ZERO_ERROR = "The PackId parameter cannot be less then zero.";
     private static final String PACK_DOES_NOT_EXIST_ERROR = "No wolf has been found with the supplied id.";
     private static final String WOLF_DOES_NOT_EXIST_ERROR = "No wolf has been found with the supplied id.";
 
@@ -31,19 +30,6 @@ public class DefaultPackLogic implements PackLogic {
         pack.setMembers(null);
 
         return packRepository.savePack(pack);
-    }
-
-    @Override
-    public boolean removeWolfFromPack(long packId, long wolfId) throws PackDoesNotExistException, WolfDoesNotExistException, WolfIsNotInPackException {
-        if (packId < 0 || wolfId < 0){
-            throw new InvalidParameterException("The packId or wolfId parameter cannot be less then zero.");
-        }
-
-        if (!isWolfInPack(packId, wolfId)){
-            throw new WolfIsNotInPackException("The wolf is not in the pack");
-        }
-
-        return packRepository.removeWolfFromPack(packId, wolfId);
     }
 
     @Override
@@ -108,7 +94,9 @@ public class DefaultPackLogic implements PackLogic {
                 continue;
             }
 
-            return wolf.id == wolfId;
+            if (wolf.id == wolfId){
+                return true;
+            }
         }
 
         return false;

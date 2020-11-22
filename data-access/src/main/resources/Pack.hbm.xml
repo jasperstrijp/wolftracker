@@ -11,13 +11,12 @@
 
         <property name="name" />
 
-        <list name="members" table="wolfs" cascade="all" lazy="false">
+        <bag name="members" table="wolfs" cascade="all" lazy="false">
             <key>
                 <column name="pack" />
             </key>
-            <index column="id"/>
             <one-to-many class="com.jasperstrijp.wolftracker.api.Wolf" />
-        </list>
+        </bag>
 
     </class>
 </hibernate-mapping>

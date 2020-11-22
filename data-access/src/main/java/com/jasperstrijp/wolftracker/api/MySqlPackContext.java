@@ -8,7 +8,7 @@ import java.util.List;
 
 public class MySqlPackContext implements PackContext {
 
-    private SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
 
     public MySqlPackContext() {
         this("hibernate.cfg.xml");
@@ -33,23 +33,6 @@ public class MySqlPackContext implements PackContext {
             session.getTransaction().commit();
 
             return id;
-        }
-    }
-
-    @Override
-    public boolean removeWolfFromPack(long packId, long wolfId) {
-        Session session = sessionFactory.getCurrentSession();
-
-        try (session){
-            session.beginTransaction();
-            Pack pack = session.get(Pack.class, packId);
-            pack.getMembers().removeIf(wolf -> wolf.id == wolfId);
-
-            session.getTransaction().commit();
-            return true;
-        } catch (Exception e){
-            System.err.println(e.getMessage());
-            return false;
         }
     }
 

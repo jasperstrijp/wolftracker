@@ -92,10 +92,11 @@ public class MySqlWolfContext implements WolfContext {
         Session session = sessionFactory.getCurrentSession();
 
         try (session){
-            Wolf toUpdate = getWolf(wolfId);
+            session.beginTransaction();
+
+            Wolf toUpdate = session.get(Wolf.class, wolfId);
             toUpdate.location = location;
 
-            session.beginTransaction();
             session.update(toUpdate);
             session.getTransaction().commit();
             return true;
